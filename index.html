@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branco Som - Acessórios Automotivos</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome para Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Montserrat (Headers) e Inter (Body) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Configuração Customizada do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            yellow: '#FACC15', /* Amarelo vibrante */
+                            yellowHover: '#EAB308',
+                            black: '#000000',
+                            dark: '#0A0A0A',
+                            gray: '#171717',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    animation: {
+                        'scroll': 'scroll 30s linear infinite',
+                    },
+                    keyframes: {
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos base e Backgrounds */
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+        
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.95)), url('assets/images/hero-speaker.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Máscara suave para o carrossel infinito */
+        .carousel-mask {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-yellow selection:text-brand-black">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-brand-black/95 backdrop-blur-md border-b border-white/10 transition-all duration-300 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex-shrink-0 flex items-center gap-2 group">
+
+                    <span class="font-heading font-black text-2xl tracking-tighter text-brand-white uppercase">
+                        Branco <span class="text-brand-yellow">Som</span>
+                    </span>
+                </a>
+                
+                <!-- Botão Contato Header -->
+                <div class="flex">
+                    <a href="#contato" class="hidden sm:inline-flex items-center justify-center border-2 border-brand-yellow text-brand-yellow hover:bg-brand-yellow hover:text-brand-black px-6 py-2.5 rounded-full font-bold transition-all duration-300 gap-2">
+                        <i class="fa-solid fa-phone"></i> Falar Conosco
+                    </a>
+                    <a href="#contato" class="sm:hidden text-brand-yellow text-2xl p-2">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg relative pt-40 pb-24 lg:pt-56 lg:pb-40 flex items-center min-h-[90vh]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <div class="inline-block bg-brand-yellow/10 border border-brand-yellow/30 px-4 py-1.5 rounded-full mb-6">
+                    <span class="text-brand-yellow font-semibold tracking-wider uppercase text-sm flex items-center gap-2">
+                        <i class="fa-solid fa-star text-xs"></i> Especialistas em Acessórios
+                    </span>
+                </div>
+                
+                <h1 class="font-heading text-5xl sm:text-6xl lg:text-7xl font-black text-white leading-[1.1] mb-6">
+                    ELEVE O NÍVEL DO <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-yellow-200">SEU VEÍCULO.</span>
+                </h1>
+                
+                <p class="text-lg sm:text-xl text-gray-400 mb-10 font-light max-w-2xl leading-relaxed">
+                    Instalação premium de som automotivo, sistemas de segurança, start stop e iluminação. Tecnologia e acabamento impecável para quem exige o melhor.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/5571986177581" target="_blank" class="bg-brand-yellow hover:bg-brand-yellowHover text-brand-black px-8 py-4 rounded-full font-bold text-lg transition-transform hover:-translate-y-1 shadow-[0_0_20px_rgba(250,204,21,0.3)] flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> Orçamento via WhatsApp
+                    </a>
+                    <a href="#servicos" class="bg-transparent border border-white/20 hover:border-white text-white px-8 py-4 rounded-full font-bold text-lg transition-all flex items-center justify-center">
+                        Ver Serviços
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marcas Carousel Section -->
+    <section class="py-16 bg-brand-black overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <p class="text-center text-gray-500 font-bold tracking-[0.2em] uppercase text-sm">Trabalhamos com as melhores marcas</p>
+        </div>
+        
+        <div class="carousel-mask w-full max-w-7xl mx-auto overflow-hidden relative">
+            <!-- Pista animada -->
+            <div class="flex w-[200%] animate-scroll items-center gap-16 py-4">
+                <!-- Set 1 -->
+                <div class="flex items-center gap-16 md:gap-24 min-w-full justify-around text-gray-600">
+                    <div class="text-3xl md:text-4xl font-black tracking-tighter hover:text-brand-yellow transition-colors cursor-default">PIONEER</div>
+                    <div class="text-4xl md:text-5xl font-extrabold italic hover:text-brand-yellow transition-colors cursor-default">JBL</div>
+                    <div class="text-3xl md:text-4xl font-bold uppercase tracking-wider hover:text-brand-yellow transition-colors cursor-default">Pósitron</div>
+                    <div class="text-3xl md:text-4xl font-black uppercase tracking-tight hover:text-brand-yellow transition-colors cursor-default">TARAMPS</div>
+                    <div class="text-3xl md:text-4xl font-light tracking-[0.2em] hover:text-brand-yellow transition-colors cursor-default">///ALPINE</div>
+                    <div class="text-3xl md:text-4xl font-black italic hover:text-brand-yellow transition-colors cursor-default">Bravox</div>
+                </div>
+
+                <!-- Set 2 (Cópia para o loop infinito) -->
+                <div class="flex items-center gap-16 md:gap-24 min-w-full justify-around text-gray-600">
+                    <div class="text-3xl md:text-4xl font-black tracking-tighter hover:text-brand-yellow transition-colors cursor-default">PIONEER</div>
+                    <div class="text-4xl md:text-5xl font-extrabold italic hover:text-brand-yellow transition-colors cursor-default">JBL</div>
+                    <div class="text-3xl md:text-4xl font-bold uppercase tracking-wider hover:text-brand-yellow transition-colors cursor-default">Pósitron</div>
+                    <div class="text-3xl md:text-4xl font-black uppercase tracking-tight hover:text-brand-yellow transition-colors cursor-default">TARAMPS</div>
+                    <div class="text-3xl md:text-4xl font-light tracking-[0.2em] hover:text-brand-yellow transition-colors cursor-default">///ALPINE</div>
+                    <div class="text-3xl md:text-4xl font-black italic hover:text-brand-yellow transition-colors cursor-default">Bravox</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section id="servicos" class="py-24 bg-brand-dark border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 md:flex md:justify-between md:items-end">
+                <div class="max-w-2xl">
+                    <h2 class="font-heading text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-tight">Nossos <span class="text-brand-yellow">Serviços</span></h2>
+                    <p class="text-gray-400 text-lg">Soluções completas com mão de obra especializada e garantia total.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-colors group">
+                    <div class="w-14 h-14 bg-brand-black border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-volume-high text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white font-heading uppercase tracking-wide">Som Automotivo</h3>
+                    <p class="text-gray-400">Projetos de áudio customizados, multimídias, alto-falantes, módulos e caixas seladas com acústica perfeita.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-colors group">
+                    <div class="w-14 h-14 bg-brand-black border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-lock text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white font-heading uppercase tracking-wide">Travas Elétricas</h3>
+                    <p class="text-gray-400">Instalação e manutenção de kits de travas elétricas e módulos de subida de vidro. Conforto na ponta dos dedos.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-colors group">
+                    <div class="w-14 h-14 bg-brand-black border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-power-off text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white font-heading uppercase tracking-wide">Sistema Start Stop</h3>
+                    <p class="text-gray-400">Tecnologia de partida sem chave (Keyless). Acione seu motor pelo botão ou via controle remoto com total segurança.</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-colors group">
+                    <div class="w-14 h-14 bg-brand-black border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-shield-halved text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white font-heading uppercase tracking-wide">Alarmes e Rastreadores</h3>
+                    <p class="text-gray-400">Proteção absoluta contra furtos. Sistemas de alarme integrados, bloqueadores e rastreamento veicular em tempo real.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-brand-gray p-8 rounded-2xl border border-white/5 hover:border-brand-yellow/50 transition-colors group">
+                    <div class="w-14 h-14 bg-brand-black border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-gears text-2xl text-brand-yellow"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white font-heading uppercase tracking-wide">Acessórios em Geral</h3>
+                    <p class="text-gray-400">Câmeras de ré, sensores de estacionamento, iluminação em LED, engates e personalizações eletrônicas diversas.</p>
+                </div>
+                
+                <!-- Card CTA Direto -->
+                <div class="bg-gradient-to-br from-brand-yellow to-yellow-600 p-8 rounded-2xl border border-brand-yellow flex flex-col justify-center items-center text-center group cursor-pointer hover:shadow-[0_0_30px_rgba(250,204,21,0.2)] transition-shadow">
+                    <i class="fa-brands fa-whatsapp text-5xl text-brand-black mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2 text-brand-black font-heading uppercase">Precisando de algo específico?</h3>
+                    <a href="https://wa.me/5571986177581" class="text-brand-black font-semibold underline decoration-2 underline-offset-4 mt-2">Chame nossa equipe agora</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais Section -->
+    <section class="py-20 bg-brand-black border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mb-12">
+                <p class="text-brand-yellow font-semibold tracking-[0.18em] uppercase text-sm mb-3">Por que escolher Branco Som</p>
+                <h2 class="font-heading text-3xl md:text-5xl font-black text-white uppercase tracking-tight">Detalhes que fazem a <span class="text-brand-yellow">diferença.</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <article class="p-8 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-medal text-brand-yellow text-3xl mb-5"></i>
+                    <h3 class="font-heading text-xl font-bold text-white uppercase mb-3">Acabamento premium</h3>
+                    <p class="text-gray-400 leading-relaxed">Instalações limpas, organizadas e pensadas para preservar a originalidade do seu veículo.</p>
+                </article>
+                <article class="p-8 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-user-gear text-brand-yellow text-3xl mb-5"></i>
+                    <h3 class="font-heading text-xl font-bold text-white uppercase mb-3">Atendimento técnico</h3>
+                    <p class="text-gray-400 leading-relaxed">Entendemos o que você precisa antes de indicar a solução ideal para o seu carro.</p>
+                </article>
+                <article class="p-8 rounded-2xl bg-white/5 border border-white/10">
+                    <i class="fa-solid fa-shield-heart text-brand-yellow text-3xl mb-5"></i>
+                    <h3 class="font-heading text-xl font-bold text-white uppercase mb-3">Confiança e garantia</h3>
+                    <p class="text-gray-400 leading-relaxed">Produtos selecionados e serviço responsável para você sair tranquilo e satisfeito.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- Contato / Footer -->
+    <footer id="contato" class="bg-brand-gray border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left mb-16">
+                <!-- Info Logo -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="#" class="flex items-center gap-2 mb-4">
+
+                        <span class="font-heading font-black text-2xl tracking-tighter text-white uppercase">
+                            Branco <span class="text-brand-yellow">Som</span>
+                        </span>
+                    </a>
+                    <p class="text-gray-400 mb-6 max-w-xs">
+                        A referência em acessórios automotivos. Transformando veículos com qualidade e precisão.
+                    </p>
+                </div>
+
+                <!-- Contato Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-white font-heading font-bold text-lg uppercase tracking-wider mb-4">Contato</h4>
+                    <div class="space-y-4 text-gray-400">
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-brand-yellow"></i> Rua Uruguai, 214 - CEP 40450-665</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-phone text-brand-yellow"></i> (71) 98617-7581</p>
+                        <a href="https://wa.me/5571986177581" class="flex items-center gap-3 hover:text-brand-yellow transition-colors"><i class="fa-brands fa-whatsapp text-brand-yellow text-lg"></i> (71) 98617-7581</a>
+                    </div>
+                </div>
+                
+                <!-- CTA Footer -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-white font-heading font-bold text-lg uppercase tracking-wider mb-4">Faça um Orçamento</h4>
+                    <p class="text-gray-400 mb-4">Pronto para dar um upgrade no seu carro? Fale diretamente com nossos técnicos.</p>
+                    <a href="https://wa.me/5571986177581" target="_blank" class="w-full text-center bg-brand-yellow hover:bg-brand-yellowHover text-brand-black px-6 py-3 rounded-lg font-bold transition-all shadow-md">
+                        <i class="fa-brands fa-whatsapp mr-2"></i> Chamar no WhatsApp
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Branco Som. Todos os direitos reservados.</p>
+                <p>Codado por <a href="https://www.instagram.com/e2.dev/" target="_blank" rel="noopener noreferrer" aria-label="Perfil da 2E no Instagram" class="font-semibold text-brand-yellow hover:text-yellow-200 transition-colors">2E</a></p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                    <a href="#" class="hover:text-brand-yellow transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
